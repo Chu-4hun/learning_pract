@@ -1,0 +1,37 @@
+﻿<Page x:Class="learning_pract.pages.admin_pages.audit_page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="Аудитории">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" FontSize="15" Content="Номер аудитории" />
+        <Label Grid.Column="0" Grid.Row="2" FontSize="15" Content="Этаж" />
+        <Label Grid.Column="0" Grid.Row="4" FontSize="15" Content="Вместимость" />
+
+        <TextBox Grid.Column="0" Grid.Row="1" Name="audit_Number_txtBox" />
+        <TextBox Grid.Column="0" Grid.Row="3" Name="floor_txtBox" />
+        <TextBox Grid.Column="0" Grid.Row="5" Name="volume_txtBox" />
+
+        <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Name="audit_listView" />
+
+        <Button Grid.Column="2" Grid.Row="1" Name="add_btn" Content="Добавить" />
+        <Button Grid.Column="2" Grid.Row="3" Name="change_btn" Content="Изменить" />
+        <Button Grid.Column="2" Grid.Row="5" Name="delete_btn" Content="Удалить" />
+
+    </Grid>
+</Page>

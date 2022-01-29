@@ -1,0 +1,31 @@
+﻿<Page x:Class="learning_pract.pages.Start_page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="Start_page">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="Аудиторный фонд"
+               FontSize="40" />
+        <Button Grid.Row="4" Grid.Column="2" Content="Войти" Name="AuthButton" Click="AuthButton_OnClick" />
+        <Button Grid.Row="5" Grid.Column="2" Content="Зарегистрироваться" Name="RegisterButton"
+                Click="RegisterButton_OnClick" />
+    </Grid>
+</Page>
