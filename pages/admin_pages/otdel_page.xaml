@@ -1,0 +1,32 @@
+﻿<Page x:Class="learning_pract.pages.admin_pages.otdel_page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:learning_pract.pages.admin_pages"
+      mc:Ignorable="d"
+      Title="Отделение">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
+            <Label Content="Наименование отделения" FontSize="20" />
+            <TextBox Name="otdel_name_txtBox" FontSize="20" />
+            <Label Content="Номер группы" FontSize="20" />
+            <ComboBox Name="group_N_cmBox" FontSize="20" />
+            <ListView Name="otdel_lstV"></ListView>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
+            <Button FontSize="20" Margin="10" Name="add_btn" Content="Добавить" />
+            <Button FontSize="20" Margin="10" Name="change_btn" Content="Изменить" />
+            <Button FontSize="20" Margin="10" Name="delete_btn" Content="Удалить" />
+        </StackPanel>
+    </Grid>
+</Page>
