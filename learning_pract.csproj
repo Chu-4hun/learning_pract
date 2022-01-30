@@ -70,17 +70,13 @@
         <Compile Include="pages\admin_pages\teacher_page.xaml.cs">
             <DependentUpon>teacher_page.xaml</DependentUpon>
         </Compile>
-        <Compile Include="user_panel.xaml.cs">
-            <DependentUpon>user_panel.xaml</DependentUpon>
+        <Compile Include="panels\admin_panel.xaml.cs">
+          <DependentUpon>admin_panel.xaml</DependentUpon>
         </Compile>
-        <Page Include="admin_panel.xaml" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </Page>
-        <Compile Include="admin_panel.xaml.cs">
-            <DependentUpon>admin_panel.xaml</DependentUpon>
-        </Compile>
         <Compile Include="App.xaml.cs">
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
@@ -97,7 +93,8 @@
         <Page Include="pages\Auth_page.xaml" />
         <Page Include="pages\Register_page.xaml" />
         <Page Include="pages\Start_page.xaml" />
-        <Page Include="user_panel.xaml" />
+        <Page Include="panels\admin_panel.xaml" />
+        <Page Include="panels\user_panel.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="pages\Auth_page.xaml.cs">
@@ -108,6 +105,9 @@
         </Compile>
         <Compile Include="pages\Start_page.xaml.cs">
             <DependentUpon>Start_page.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="panels\user_panel.xaml.cs">
+          <DependentUpon>user_panel.xaml</DependentUpon>
         </Compile>
         <Compile Include="Properties\AssemblyInfo.cs">
             <SubType>Code</SubType>
