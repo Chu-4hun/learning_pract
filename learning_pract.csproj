@@ -64,6 +64,9 @@
         <Compile Include="pages\admin_pages\otdel_page.xaml.cs">
           <DependentUpon>otdel_page.xaml</DependentUpon>
         </Compile>
+        <Compile Include="pages\admin_pages\subjects_page.xaml.cs">
+          <DependentUpon>subjects_page.xaml</DependentUpon>
+        </Compile>
         <Compile Include="pages\admin_pages\teacher_page.xaml.cs">
             <DependentUpon>teacher_page.xaml</DependentUpon>
         </Compile>
@@ -89,6 +92,7 @@
         <Page Include="pages\admin_pages\audit_page.xaml" />
         <Page Include="pages\admin_pages\groups_page.xaml" />
         <Page Include="pages\admin_pages\otdel_page.xaml" />
+        <Page Include="pages\admin_pages\subjects_page.xaml" />
         <Page Include="pages\admin_pages\teacher_page.xaml" />
         <Page Include="pages\Auth_page.xaml" />
         <Page Include="pages\Register_page.xaml" />

@@ -1,11 +1,11 @@
-﻿<Page x:Class="learning_pract.pages.admin_pages.groups_page"
+﻿<Page x:Class="learning_pract.pages.admin_pages.subjects_page"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:learning_pract.pages.admin_pages"
       mc:Ignorable="d"
-      Title="Группы">
+      Title="Дисциплины">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -17,9 +17,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <StackPanel  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
-            <Label Content="Номер группы" FontSize="20" />
-            <TextBox Name="group_name_txtBox" FontSize="20" />
-            <ListView Name="groups_lstV"></ListView>
+            <Label Content="Название дисциплины" FontSize="20" />
+            <TextBox Name="subject_name_txtBox" FontSize="20" />
+            <ListView Name="subject_lstV"></ListView>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
             <Button FontSize="20" Margin="10" Name="add_btn" Content="Добавить" />
