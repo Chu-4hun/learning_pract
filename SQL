@@ -1,0 +1,69 @@
+create table Positions
+(
+	ID_Positions Serial PRIMARY KEY,
+	pos_name Varchar(64) NOT NULL
+);
+
+create table Department 
+(
+	ID_Department Serial PRIMARY KEY,
+	dep_number int  NOT NULL
+);
+
+create table "Groups" 
+(
+	ID_Groups Serial PRIMARY KEY,
+	group_name Varchar(15)  NOT NULL
+);
+
+create table Users 
+(
+	ID_user Serial PRIMARY KEY,
+	surname  varchar(25) NOT NULL,
+    "name" varchar(20) NOT NULL,
+    patronymic varchar(25) null default(''),
+    login         varchar(20) NOT NULL,
+	"password"    varchar(20) NOT NULL
+);
+
+
+create table auditorys
+(
+	ID_auditory Serial PRIMARY KEY,
+	auditory_num int  NOT NULL,
+	capacity int NOT NULL
+);
+
+create table "day"
+(
+	ID_day Serial PRIMARY KEY,
+	"Date" DATE NOT NULL
+);
+
+create table lectures
+(
+	ID_lectures Serial PRIMARY KEY,
+	theme varchar(20) NOT NULL
+);
+
+create table schedule
+(
+	day_FK int REFERENCES "day" (ID_day),
+	lectures_FK int REFERENCES "lectures" (ID_lectures),
+	auditorys_FK int REFERENCES auditorys (ID_auditory),
+	department_FK int REFERENCES Department (ID_Department)
+);
+
+create table Positions_to_Users
+(
+	Positions_FK int REFERENCES Positions (ID_Positions),
+	user_FK int REFERENCES Users (ID_user)
+);
+
+create table Groups_to_Users
+(
+	Groups_FK int REFERENCES "Groups" (ID_Groups),
+	user_FK int REFERENCES Users (ID_user)
+);
+
+
