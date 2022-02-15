@@ -27,10 +27,10 @@
         <Label Grid.Row="1" Grid.Column="2" Content="Авторизация" FontSize="30" />
 
         <Label Grid.Row="2" Grid.Column="2" Content="Логин" />
-        <TextBox Grid.Row="3" Grid.Column="2" />
+        <TextBox Grid.Row="3" Grid.Column="2" Name="LoginBox"/>
         <Label Grid.Row="4" Grid.Column="2" Content="Пароль" />
-        <TextBox Grid.Row="5" Grid.Column="2" />
+        <PasswordBox Grid.Row="5" Grid.Column="2" Name="PasswordBox"></PasswordBox>
 
-        <Button Grid.Row="6" Grid.Column="2" Content="Войти" FontSize="20" />
+        <Button Grid.Row="6" Grid.Column="2" Content="Войти" FontSize="20" Name="authBtn" Click="AuthBtn_OnClick" />
     </Grid>
 </Page>
