@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using InventoryOfEquipment.Lib;
 
 namespace learning_pract
 {
@@ -7,5 +8,22 @@ namespace learning_pract
     /// </summary>
     public partial class App : Application
     {
+        public static DB db;
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            db = new DB("194.169.163.29", "Dan", "root", "root_mpt");
+
+            var window = new MainWindow()
+            {
+                Height = 800,
+                Width = 800,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            // window.DataContext =  new MainViewModel();
+            window.ShowDialog();
+        }
     }
 }
