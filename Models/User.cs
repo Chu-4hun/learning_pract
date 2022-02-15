@@ -9,14 +9,14 @@ namespace learning_pract.Models
         {
         }
 
-        public User(string surname, string firstName, string patronymic, Position position)
+        public User(string surname, string firstName, string patronymic, string login, string password, Position position)
         {
             this.surname = surname;
             this.firstName = firstName;
             this.patronymic = patronymic;
             this.login = "-";
             this.password = "-";
-            this._idPosition = position.ID;
+            this._idPosition = Position.ID;
         }
 
         public User(Dictionary<string, object> data)
@@ -122,24 +122,24 @@ namespace learning_pract.Models
         }
         public void save()
         {
-            // if (this.exists())
-            // {
-            //     App.db.execute(
-            //         "UPDATE personal SET fam_personal=@surname, name_personal=@firstName, otch_personal=@patronymic, login=@login, password=@password WHERE id_personal=@id_personal;",
-            //         new Dictionary<string, object>()
-            //         {
-            //             { "surname", surname },
-            //             { "firstName", firstName },
-            //             { "patronymic", patronymic },
-            //             { "login", login },
-            //             { "password", password },
-            //             { "id", _id },
-            //         });
-            //     return;
-            // }
+            if (this.exists())
+            {
+                App.db.execute(
+                    "UPDATE Users SET surname=@surname, name=@name, patronymic=@patronymic, login=@login, password=@password WHERE id_user=@id;",
+                    new Dictionary<string, object>()
+                    {
+                        { "surname", surname },
+                        { "firstName", firstName },
+                        { "patronymic", patronymic },
+                        { "login", login },
+                        { "password", password },
+                        { "id", _id },
+                    });
+                return;
+            }
 
             var data = App.db.execute(
-                "INSERT INTO Users(surname, name, patronymic, login, password) VALUES (@surname, @firstName, @patronymic, @login, @password) RETURNING id_personal;",
+                "INSERT INTO Users(surname, name, patronymic, login, password) VALUES (@surname, @firstName, @patronymic, @login, @password) RETURNING id_user;",
                 new Dictionary<string, object>()
                 {
                     { "surname", surname },
@@ -150,7 +150,7 @@ namespace learning_pract.Models
                 });
             if (data.Count > 0)
             {
-                Int32.TryParse(data[0]["id_personal"].ToString(), out this._id);
+                Int32.TryParse(data[0]["id_user"].ToString(), out this._id);
             }
         }
     }

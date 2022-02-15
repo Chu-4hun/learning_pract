@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="{Binding ElementName=MainFrame, Path=Content.Title}" Height="600" Width="800">
     <Window.Background>
-        <ImageBrush ImageSource="D:\CODE\C#\WPF\Learning_pract\img\gragient.png" />
+        <ImageBrush ImageSource="/img/gragient.png" />
     </Window.Background>
     <Grid>
         <Grid Margin="80">

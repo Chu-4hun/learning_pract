@@ -20,6 +20,8 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -32,17 +34,19 @@
         <Label Grid.Row="1" Grid.Column="2" Content="Фамилия" FontSize="20" />
         <Label Grid.Row="3" Grid.Column="2" Content="Имя" FontSize="20" />
         <Label Grid.Row="5" Grid.Column="2" Content="Отчество" FontSize="20" />
-        <Label Grid.Row="7" Grid.Column="2" Content="Email" FontSize="20" />
-        <Label Grid.Row="9" Grid.Column="2" Content="Роль" FontSize="20" />
+        <Label Grid.Row="7" Grid.Column="2" Content="Логин" FontSize="20" />
+        <Label Grid.Row="9" Grid.Column="2" Content="Пароль" FontSize="20" />
+        <Label Grid.Row="11" Grid.Column="2" Content="Роль" FontSize="20" />
 
         <TextBox Grid.Row="2" Grid.Column="2" Name="fam_txtBox" />
         <TextBox Grid.Row="4" Grid.Column="2" Name="name_txtBox" />
         <TextBox Grid.Row="6" Grid.Column="2" Name="otch_txtBox" />
-        <TextBox Grid.Row="8" Grid.Column="2" Name="email_txtBox" />
+        <TextBox Grid.Row="8" Grid.Column="2" Name="login_txtBox" />
+        <PasswordBox Grid.Row="10" Grid.Column="2" Name="Passsword_txtBox" />
 
-        <ComboBox Grid.Row="10" Grid.Column="2" Name="role_comboBox" />
+        <ComboBox Grid.Row="12" Grid.Column="2" Name="position_comboBox" />
 
-        <Button Grid.Row="11" Grid.Column="2" Name="register_btn" Content="Зарегистрироваться" FontSize="20" />
+        <Button Grid.Row="13" Grid.Column="2" Name="register_btn" Content="Зарегистрироваться" FontSize="20" Click="Register_btn_OnClick"/>
 
     </Grid>
 </Page>

@@ -200,7 +200,7 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="img\gragient.png" />
+        <Resource Include="img\gragient.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Import Project="packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
