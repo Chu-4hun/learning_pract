@@ -4,10 +4,10 @@ create table Positions
 	pos_name Varchar(64) NOT NULL
 );
 
-create table Department 
+Create table Department 
 (
 	ID_Department Serial PRIMARY KEY,
-	dep_number int  NOT NULL
+	dep_number Varchar(8)  NOT NULL
 );
 
 create table "Groups" 
@@ -67,3 +67,22 @@ create table Groups_to_Users
 );
 
 
+insert into Positions(pos_name)
+values ('Администратор'),('Сотрудник Учебной Части');
+SELECT * FROM Positions
+
+insert into Department(dep_number)
+values ('09.02.01');
+SELECT * FROM Department
+
+insert into "Groups" (group_name)
+values ('П50-6-19');
+SELECT * FROM "Groups"
+
+insert into auditorys (auditory_num,capacity)
+values (101,100);
+SELECT * FROM auditorys
+
+insert into "day" ("Date")
+values (current_date);
+SELECT * FROM "day"
