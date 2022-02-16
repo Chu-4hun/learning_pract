@@ -39,7 +39,7 @@ namespace learning_pract.Models
             var data = App.db.execute("select * from Department where ID_Department=@id;",
                 new Dictionary<string, object>()
                 {
-                    {"id", id.ToString()}
+                    {"id", id}
                 });
             if (data.Count == 0)
             {

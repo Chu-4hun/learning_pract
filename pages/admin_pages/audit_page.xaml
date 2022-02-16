@@ -25,9 +25,9 @@
 
         <TextBox Grid.Column="0" Grid.Row="1" Name="audit_Number_txtBox" />
         <!-- <TextBox Grid.Column="0" Grid.Row="3" Name="floor_txtBox" /> -->
-        <TextBox Grid.Column="0" Grid.Row="5" Name="volume_txtBox" />
+        <TextBox Grid.Column="0" Grid.Row="5" Name="capacity_txtBox" />
 
-        <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Name="audit_listView" />
+        <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Name="audit_listView" SelectionChanged="Audit_listView_OnSelectionChanged"/>
 
         <Button Grid.Column="2" Grid.Row="1" Name="add_btn" Content="Добавить" />
         <Button Grid.Column="2" Grid.Row="3" Name="change_btn" Content="Изменить" />

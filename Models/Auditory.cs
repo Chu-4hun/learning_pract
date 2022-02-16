@@ -37,7 +37,7 @@ namespace learning_pract.Models
         {
             return _id != -1;
         }
-
+        
         public static List<Auditory> GetAll()
         {
             List<Auditory> list = new List<Auditory>();
@@ -56,7 +56,7 @@ namespace learning_pract.Models
             var data = App.db.execute("select * from Auditorys where ID_Auditory=@id;",
                 new Dictionary<string, object>()
                 {
-                    {"id", id.ToString()}
+                    {"id", id}
                 });
             if (data.Count == 0)
             {
