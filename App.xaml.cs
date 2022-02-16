@@ -23,7 +23,7 @@ namespace learning_pract
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             // window.DataContext =  new MainViewModel();
-            window.ShowDialog();
+            // window.ShowDialog();
         }
     }
 }

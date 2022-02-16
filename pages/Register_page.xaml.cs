@@ -22,9 +22,11 @@ namespace learning_pract.pages
                 otch_txtBox.Text != String.Empty && login_txtBox.Text != String.Empty &&
                 Passsword_txtBox.Password != String.Empty)
             {
-                User user = new User(fam_txtBox.Text, name_txtBox.Text, otch_txtBox.Text, login_txtBox.Text,
-                    Crypt.Encrypt(Passsword_txtBox.Password), (Position) position_comboBox.SelectedItem);
+                User user = new User(surname: fam_txtBox.Text, firstName: name_txtBox.Text,
+                    patronymic: otch_txtBox.Text, login: login_txtBox.Text, password:
+                    Crypt.Encrypt(Passsword_txtBox.Password), position: (Position) position_comboBox.SelectedItem);
                 user.save();
+                NavigationService.Navigate(new Start_page());
             }
             else
             {

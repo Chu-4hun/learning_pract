@@ -14,9 +14,9 @@ namespace learning_pract.Models
             this.surname = surname;
             this.firstName = firstName;
             this.patronymic = patronymic;
-            this.login = "-";
-            this.password = "-";
-            this._idPosition = Position.ID;
+            this.login = login;
+            this.password = password;
+            this._idPosition = position.ID;
         }
 
         public User(Dictionary<string, object> data)
@@ -27,12 +27,7 @@ namespace learning_pract.Models
             this.login = data["login"].ToString();
             this.password = data["password"].ToString();
             Int32.TryParse(data["id_user"].ToString(), out this._id);
-            var Position = App.db.execute("select * from positions_to_users where user_fk=@id;",
-                new Dictionary<string, object>()
-                {
-                    { "id", ID }
-                });
-            Int32.TryParse( Position[0]["positions_fk"].ToString(), out this._idPosition);
+            Int32.TryParse( data["position_fk"].ToString(), out this._idPosition);
         }
 
         public string surname { get; set; }
@@ -70,7 +65,7 @@ namespace learning_pract.Models
             var data = App.db.execute("select * from Users where ID_user=@id;",
                 new Dictionary<string, object>()
                 {
-                    { "id", id }
+                    { "id", id}
                 });
             if (data.Count == 0)
             {
@@ -125,7 +120,7 @@ namespace learning_pract.Models
             if (this.exists())
             {
                 App.db.execute(
-                    "UPDATE Users SET surname=@surname, name=@name, patronymic=@patronymic, login=@login, password=@password WHERE id_user=@id;",
+                    "UPDATE Users SET surname=@surname, name=@name, patronymic=@patronymic, login=@login, password=@password position_fk=@position WHERE id_user=@id;",
                     new Dictionary<string, object>()
                     {
                         { "surname", surname },
@@ -133,13 +128,13 @@ namespace learning_pract.Models
                         { "patronymic", patronymic },
                         { "login", login },
                         { "password", password },
-                        { "id", _id },
+                        { "id", ID },
                     });
                 return;
             }
 
             var data = App.db.execute(
-                "INSERT INTO Users(surname, name, patronymic, login, password) VALUES (@surname, @firstName, @patronymic, @login, @password) RETURNING id_user;",
+                "INSERT INTO Users(surname, name, patronymic, login, password,position_fk) VALUES (@surname, @firstName, @patronymic, @login, @password,@position) RETURNING id_user;",
                 new Dictionary<string, object>()
                 {
                     { "surname", surname },
@@ -147,6 +142,7 @@ namespace learning_pract.Models
                     { "patronymic", patronymic },
                     { "login", login },
                     { "password", password },
+                    {"position", _idPosition}
                 });
             if (data.Count > 0)
             {

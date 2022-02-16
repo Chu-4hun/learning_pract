@@ -16,14 +16,15 @@ create table "Groups"
 	group_name Varchar(15)  NOT NULL
 );
 
-create table Users 
+create table Users
 (
 	ID_user Serial PRIMARY KEY,
 	surname  varchar(25) NOT NULL,
     "name" varchar(20) NOT NULL,
     patronymic varchar(25) null default(''),
     login         varchar(20) NOT NULL,
-	"password"    varchar(20) NOT NULL
+	"password"    varchar(20) NOT NULL,
+	position_fk int REFERENCES Positions(ID_Positions)
 );
 
 
@@ -54,11 +55,6 @@ create table schedule
 	department_FK int REFERENCES Department (ID_Department)
 );
 
-create table Positions_to_Users
-(
-	Positions_FK int REFERENCES Positions (ID_Positions),
-	user_FK int REFERENCES Users (ID_user)
-);
 
 create table Groups_to_Users
 (
@@ -86,3 +82,6 @@ SELECT * FROM auditorys
 insert into "day" ("Date")
 values (current_date);
 SELECT * FROM "day"
+
+SELECT * FROM Users
+DELETE FROM Users
