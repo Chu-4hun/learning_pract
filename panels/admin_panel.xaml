@@ -31,9 +31,6 @@
                 <Button Name="SubjectButton" Content="Дисциплины"  FontSize="20" Margin="0 0 10 0" Click="SubjectButton_OnClick"/>
                 <Button Name="ExitButton" Content="Выйти"          FontSize="20" Margin="0 0 10 0" Click="ExitButton_OnClick"/>
             </StackPanel>
-
         </Grid>
-
-
     </Grid>
 </Window>

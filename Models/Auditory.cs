@@ -14,16 +14,25 @@ namespace learning_pract.Models
             num = _AuditNum;
             capacity = _capacity;
         }
+        public Auditory(String _AuditNum, String _capacity)
+        {
+            int vrem;
+            Int32.TryParse(_AuditNum,out vrem);
+            num = vrem;
+            Int32.TryParse(_capacity,out capacity);
+        }
 
 
         public Auditory(Dictionary<string, object> data)
         {
             Int32.TryParse(data["id_auditory"].ToString(), out _id);
-            Int32.TryParse(data["auditory_num"].ToString(), out num);
+            int vrem;
+            Int32.TryParse(data["auditory_num"].ToString(), out vrem);
+            num = vrem;
             Int32.TryParse(data["capacity"].ToString(), out capacity);
         }
 
-        public int num;
+        public int num { get; set; }
         public int capacity;
 
         private int _id = -1;
@@ -66,12 +75,6 @@ namespace learning_pract.Models
             return new Auditory(data[0]);
         }
 
-        public void delete(int _inputid)
-        {
-            App.db.execute("delete from auditorys where id_auditory=@_inputid;");
-            _id = -1;
-        }
-
         public void delete()
         {
             App.db.execute("delete from auditorys where id_auditory=@id;",
@@ -87,23 +90,22 @@ namespace learning_pract.Models
             if (this.exists())
             {
                 App.db.execute(
-                    "UPDATE auditorys SET id_Auditory=@id, Auditory_num=@name, capacity=@capacity WHERE id_auditory=@id;",
+                    "UPDATE auditorys SET id_Auditory=@id,  Auditory_num=@num, capacity=@capacity",
                     new Dictionary<string, object>()
                     {
+                        {"id", _id},
                         {"num", num},
                         {"capacity", capacity},
-                        {"id", ID},
                     });
                 return;
             }
 
             var data = App.db.execute(
-                "INSERT INTO Users(id_Auditory, Auditory_num, capacity) VALUES (@id, @name, @capacity, @login) RETURNING id_auditory;",
+                "INSERT INTO auditorys(Auditory_num, capacity) VALUES (@num, @capacity) RETURNING id_auditory;",
                 new Dictionary<string, object>()
                 {
                     {"num", num},
                     {"capacity", capacity},
-                    {"id", ID},
                 });
             if (data.Count > 0)
             {

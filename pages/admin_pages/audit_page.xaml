@@ -27,11 +27,18 @@
         <!-- <TextBox Grid.Column="0" Grid.Row="3" Name="floor_txtBox" /> -->
         <TextBox Grid.Column="0" Grid.Row="5" Name="capacity_txtBox" />
 
-        <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Name="audit_listView" SelectionChanged="Audit_listView_OnSelectionChanged"/>
+        <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Name="audit_listView"
+                  SelectionChanged="Audit_listView_OnSelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding num}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        <Button Grid.Column="2" Grid.Row="1" Name="add_btn" Content="Добавить" />
-        <Button Grid.Column="2" Grid.Row="3" Name="change_btn" Content="Изменить" />
-        <Button Grid.Column="2" Grid.Row="5" Name="delete_btn" Content="Удалить" />
+        <Button Grid.Column="2" Grid.Row="1" Name="add_btn" Content="Добавить" Click="Add_btn_OnClick" />
+        <Button Grid.Column="2" Grid.Row="3" Name="change_btn" Content="Изменить" Click="Change_btn_OnClick" />
+        <Button Grid.Column="2" Grid.Row="5" Name="delete_btn" Content="Удалить" Click="Delete_btn_OnClick" />
 
     </Grid>
 </Page>
