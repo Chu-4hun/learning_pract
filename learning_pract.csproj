@@ -113,8 +113,9 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="lib\Crypt.cs" />
         <Compile Include="lib\DB.cs" />
-        <Compile Include="Models\Crypt.cs" />
+        <Compile Include="Models\Auditory.cs" />
         <Compile Include="Models\Department.cs" />
         <Compile Include="Models\Group.cs" />
         <Compile Include="Models\Position.cs" />

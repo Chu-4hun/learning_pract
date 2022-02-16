@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        Title="{Binding ElementName=MainFrame, Path=Content.Title}" Height="600" Width="800">
+        Title="{Binding ElementName=Admin_frame, Path=Content.Title}" Height="600" Width="800">
     <Window.Background>
         <ImageBrush ImageSource="\img\gragient.png" />
     </Window.Background>
@@ -24,12 +24,12 @@
             <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="White"
                    NavigationUIVisibility="Hidden" Name="Admin_frame" />
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
-                <Button Name="AuditoryButton" Content="Аудитория" FontSize="20" Margin="0 0 10 0" />
-                <Button Name="TeachersButton" Content="Учителя" FontSize="20" Margin="0 0 10 0" />
-                <Button Name="OtdelButton" Content="Отделения" FontSize="20" Margin="0 0 10 0" />
-                <Button Name="GroupsButton" Content="Группы" FontSize="20" Margin="0 0 10 0" />
-                <Button Name="SubjectButton" Content="Дисциплины" FontSize="20" Margin="0 0 10 0" />
-                <Button Name="ExitButton" Content="Выйти" FontSize="20" Margin="0 0 10 0" />
+                <Button Name="AuditoryButton" Content="Аудитория"  FontSize="20" Margin="0 0 10 0" Click="AuditoryButton_OnClick" />
+                <Button Name="TeachersButton" Content="Учителя"    FontSize="20" Margin="0 0 10 0" Click="TeachersButton_OnClick"/>
+                <Button Name="OtdelButton" Content="Отделения"     FontSize="20" Margin="0 0 10 0" Click="OtdelButton_OnClick"/>
+                <Button Name="GroupsButton" Content="Группы"       FontSize="20" Margin="0 0 10 0" Click="GroupsButton_OnClick"/>
+                <Button Name="SubjectButton" Content="Дисциплины"  FontSize="20" Margin="0 0 10 0" Click="SubjectButton_OnClick"/>
+                <Button Name="ExitButton" Content="Выйти"          FontSize="20" Margin="0 0 10 0" Click="ExitButton_OnClick"/>
             </StackPanel>
 
         </Grid>

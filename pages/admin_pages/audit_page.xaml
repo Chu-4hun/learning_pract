@@ -20,11 +20,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Grid.Row="0" FontSize="15" Content="Номер аудитории" />
-        <Label Grid.Column="0" Grid.Row="2" FontSize="15" Content="Этаж" />
+        <!-- <Label Grid.Column="0" Grid.Row="2" FontSize="15" Content="Этаж" /> -->
         <Label Grid.Column="0" Grid.Row="4" FontSize="15" Content="Вместимость" />
 
         <TextBox Grid.Column="0" Grid.Row="1" Name="audit_Number_txtBox" />
-        <TextBox Grid.Column="0" Grid.Row="3" Name="floor_txtBox" />
+        <!-- <TextBox Grid.Column="0" Grid.Row="3" Name="floor_txtBox" /> -->
         <TextBox Grid.Column="0" Grid.Row="5" Name="volume_txtBox" />
 
         <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" Name="audit_listView" />

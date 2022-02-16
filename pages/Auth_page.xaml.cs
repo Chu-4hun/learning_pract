@@ -29,14 +29,14 @@ namespace learning_pract
                         {
                             admin_panel adminPanel = new admin_panel();
                             adminPanel.Show();
-                            Window.GetWindow(this)?.Hide();
+                            Window.GetWindow(this)?.Close();
                             break;
                         }
                         case "Сотрудник Учебной Части":
                         {
                             user_panel userPanel = new user_panel();
                             userPanel.Show();
-                            Window.GetWindow(this)?.Hide();
+                            Window.GetWindow(this)?.Close();
                             break;
                         }
                     }
