@@ -90,7 +90,7 @@ namespace learning_pract.Models
             if (this.exists())
             {
                 App.db.execute(
-                    "UPDATE auditorys SET id_Auditory=@id,  Auditory_num=@num, capacity=@capacity",
+                    "UPDATE auditorys SET Auditory_num=@num, capacity=@capacity where id_Auditory=@id",
                     new Dictionary<string, object>()
                     {
                         {"id", _id},

@@ -25,7 +25,7 @@
                    NavigationUIVisibility="Hidden" Name="Admin_frame" />
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <Button Name="AuditoryButton" Content="Аудитория"  FontSize="20" Margin="0 0 10 0" Click="AuditoryButton_OnClick" />
-                <Button Name="TeachersButton" Content="Учителя"    FontSize="20" Margin="0 0 10 0" Click="TeachersButton_OnClick"/>
+                <Button Name="TeachersButton" Content="Пользователи"    FontSize="20" Margin="0 0 10 0" Click="TeachersButton_OnClick"/>
                 <Button Name="OtdelButton" Content="Отделения"     FontSize="20" Margin="0 0 10 0" Click="OtdelButton_OnClick"/>
                 <Button Name="GroupsButton" Content="Группы"       FontSize="20" Margin="0 0 10 0" Click="GroupsButton_OnClick"/>
                 <Button Name="SubjectButton" Content="Дисциплины"  FontSize="20" Margin="0 0 10 0" Click="SubjectButton_OnClick"/>

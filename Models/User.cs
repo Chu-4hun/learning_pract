@@ -46,13 +46,13 @@ namespace learning_pract.Models
         public string password { get; set; }
         
 
-        private int _idPosition;
+        public int _idPosition;
 
         public Position Position
         {
             get => Position.getById(_idPosition);
         }
-
+        
         private int _id = -1;
 
         public int ID
@@ -120,15 +120,16 @@ namespace learning_pract.Models
             if (this.exists())
             {
                 App.db.execute(
-                    "UPDATE Users SET surname=@surname, name=@name, patronymic=@patronymic, login=@login, password=@password position_fk=@position WHERE id_user=@id;",
+                    "UPDATE Users SET surname=@surname, name=@name, patronymic=@patronymic, login=@login, password=@password, position_fk=@position WHERE id_user=@id;",
                     new Dictionary<string, object>()
                     {
                         { "surname", surname },
-                        { "firstName", firstName },
+                        { "name", firstName },
                         { "patronymic", patronymic },
                         { "login", login },
                         { "password", password },
-                        { "id", ID },
+                        {"position", _idPosition},
+                        { "id", ID }
                     });
                 return;
             }
