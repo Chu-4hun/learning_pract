@@ -11,7 +11,6 @@ namespace learning_pract.pages.admin_pages
         {
             InitializeComponent();
             otdel_lstV.ItemsSource = Department.getAll();
-            // otdel_lstV.DisplayMemberPath = "name";
             otdel_lstV.SelectedIndex = 0;
         }
 
@@ -54,7 +53,7 @@ namespace learning_pract.pages.admin_pages
             }
             else
             {
-                MessageBox.Show("Выберите аудиторю");
+                MessageBox.Show("Выберите отдел");
             }
         }
 

@@ -16,15 +16,21 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
             <Label Content="Номер группы" FontSize="20" />
             <TextBox Name="group_name_txtBox" FontSize="20" />
-            <ListView Name="groups_lstV"></ListView>
+            <ListView Name="groups_lstV" SelectionChanged="Groups_lstV_OnSelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
-            <Button FontSize="20" Margin="10" Name="add_btn" Content="Добавить" />
-            <Button FontSize="20" Margin="10" Name="change_btn" Content="Изменить" />
-            <Button FontSize="20" Margin="10" Name="delete_btn" Content="Удалить" />
+            <Button FontSize="20" Margin="10" Name="add_btn" Content="Добавить" Click="Add_btn_OnClick" />
+            <Button FontSize="20" Margin="10" Name="change_btn" Content="Изменить" Click="Change_btn_OnClick" />
+            <Button FontSize="20" Margin="10" Name="delete_btn" Content="Удалить" Click="Delete_btn_OnClick" />
         </StackPanel>
     </Grid>
 </Page>
