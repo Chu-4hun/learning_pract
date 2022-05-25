@@ -26,10 +26,10 @@
 
         <Label Grid.Row="1" Grid.Column="2" Content="Авторизация" FontSize="30" />
 
-        <Label Grid.Row="2" Grid.Column="2" Content="Логин" />
-        <TextBox Grid.Row="3" Grid.Column="2" Name="LoginBox"/>
-        <Label Grid.Row="4" Grid.Column="2" Content="Пароль" />
-        <PasswordBox Grid.Row="5" Grid.Column="2" Name="PasswordBox"></PasswordBox>
+        <Label FontSize="20" Grid.Row="2" Grid.Column="2" Content="Логин" />
+        <TextBox FontSize="20" Grid.Row="3" Grid.Column="2" Name="LoginBox" />
+        <Label FontSize="20" Grid.Row="4" Grid.Column="2" Content="Пароль" />
+        <PasswordBox FontSize="20" Grid.Row="5" Grid.Column="2" Name="PasswordBox"></PasswordBox>
 
         <Button Grid.Row="6" Grid.Column="2" Content="Войти" FontSize="20" Name="authBtn" Click="AuthBtn_OnClick" />
     </Grid>

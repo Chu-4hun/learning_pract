@@ -1,0 +1,47 @@
+﻿<Page x:Class="learning_pract.pages.user_pages.audit_fund_page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:learning_pract.pages.user_pages"
+      mc:Ignorable="d"
+      Title="Аудиторный фонд">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="3">
+             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Padding="20 5 20 5" FontSize="20" Name="AllGroupsButton" Content="Все группы" Click="AllGroupsButton_OnClick"></Button>
+                <Button Padding="20 5 20 5" FontSize="20" Name="EditButton" Content="Добавить" Click="EditButton_OnClick"></Button>
+                <Button Padding="20 5 20 5" FontSize="20" Name="ExportButton" Content="Экспортировать"></Button>
+            </StackPanel>
+            <ListView Name="groups_lstV"
+                      SelectionChanged="Groups_lstV_OnSelectionChanged" FontSize="20">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+           
+            <DataGrid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" Name="AuditGrid"
+                      AutoGenerateColumns="True" HeadersVisibility="Column" FontSize="20">
+            </DataGrid>
+        </StackPanel>
+
+    </Grid>
+</Page>

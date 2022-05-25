@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        Title="{Binding ElementName=User_frame, Path=Content.Title}" Height="600" Width="800">
+        Title="{Binding ElementName=User_frame, Path=Content.Title}" Height="800" Width="1000">
     <Window.Background>
         <ImageBrush ImageSource="\img\gragient.png" />
     </Window.Background>
@@ -19,15 +19,16 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
+                <ColumnDefinition />
 
             </Grid.ColumnDefinitions>
-            <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="White"
+            <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="White"
                    NavigationUIVisibility="Hidden" Name="User_frame" />
-            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                <Button Name="AuditoryButton" Content="Аудитория" FontSize="20" Margin="0 0 10 0" />
-                <Button Name="TeachersButton" Content="Учителя" FontSize="20" Margin="0 0 10 0" />
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Button Name="AuditoryButton" Content="Аудиторный фонд" FontSize="20" Margin="0 0 10 0" Padding="10" Click="AuditoryButton_OnClick"/>
+                <Button Name="ScheduleButton" Content="Расписание" FontSize="20" Margin="0 0 10 0" Padding="10" Click="ScheduleButton_OnClick"/>
             </StackPanel>
-            <Button Grid.Row="0" Grid.Column="1" Content="Выйти" Margin="100 0 0 0" />
+            <Button Grid.Row="0" Name="ExitButton" Grid.Column="2" FontSize="20" Foreground="Red" Background="Transparent" Content="Выйти" Margin="100 0 0 0" Click="ExitButton_OnClick"/>
 
         </Grid>
     </Grid>

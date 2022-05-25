@@ -115,11 +115,13 @@
         </ApplicationDefinition>
         <Compile Include="lib\Crypt.cs" />
         <Compile Include="lib\DB.cs" />
+        <Compile Include="Models\Audit.cs" />
         <Compile Include="Models\Auditory.cs" />
         <Compile Include="Models\Department.cs" />
         <Compile Include="Models\Group.cs" />
         <Compile Include="Models\Lecture.cs" />
         <Compile Include="Models\Position.cs" />
+        <Compile Include="Models\Schedule.cs" />
         <Compile Include="Models\User.cs" />
         <Compile Include="pages\admin_pages\audit_page.xaml.cs">
             <DependentUpon>audit_page.xaml</DependentUpon>
@@ -135,6 +137,15 @@
         </Compile>
         <Compile Include="pages\admin_pages\teacher_page.xaml.cs">
             <DependentUpon>teacher_page.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="pages\user_pages\add_schedule_page.xaml.cs">
+          <DependentUpon>add_schedule_page.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="pages\user_pages\audit_fund_page.xaml.cs">
+          <DependentUpon>audit_fund_page.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="pages\user_pages\schedule_page.xaml.cs">
+          <DependentUpon>schedule_page.xaml</DependentUpon>
         </Compile>
         <Compile Include="panels\admin_panel.xaml.cs">
           <DependentUpon>admin_panel.xaml</DependentUpon>
@@ -159,6 +170,9 @@
         <Page Include="pages\Auth_page.xaml" />
         <Page Include="pages\Register_page.xaml" />
         <Page Include="pages\Start_page.xaml" />
+        <Page Include="pages\user_pages\add_schedule_page.xaml" />
+        <Page Include="pages\user_pages\audit_fund_page.xaml" />
+        <Page Include="pages\user_pages\schedule_page.xaml" />
         <Page Include="panels\admin_panel.xaml" />
         <Page Include="panels\user_panel.xaml" />
     </ItemGroup>
