@@ -21,8 +21,8 @@
         <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="3">
              <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Padding="20 5 20 5" FontSize="20" Name="AllGroupsButton" Content="Все группы" Click="AllGroupsButton_OnClick"></Button>
-                <Button Padding="20 5 20 5" FontSize="20" Name="EditButton" Content="Добавить" Click="EditButton_OnClick"></Button>
-                <Button Padding="20 5 20 5" FontSize="20" Name="ExportButton" Content="Экспортировать"></Button>
+                <Button Padding="20 5 20 5" FontSize="20" Name="AddButton" Content="Добавить" Click="AddButton_OnClick"></Button>
+                <Button Padding="20 5 20 5" FontSize="20" Name="ExportButton" Content="Экспортировать" Click="ExportButton_OnClick"></Button>
             </StackPanel>
             <ListView Name="groups_lstV"
                       SelectionChanged="Groups_lstV_OnSelectionChanged" FontSize="20">
@@ -38,7 +38,7 @@
                 </ListView.ItemsPanel>
             </ListView>
            
-            <DataGrid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" Name="AuditGrid"
+            <DataGrid  Name="AuditGrid"
                       AutoGenerateColumns="True" HeadersVisibility="Column" FontSize="20">
             </DataGrid>
         </StackPanel>

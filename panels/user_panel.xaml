@@ -26,7 +26,7 @@
                    NavigationUIVisibility="Hidden" Name="User_frame" />
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <Button Name="AuditoryButton" Content="Аудиторный фонд" FontSize="20" Margin="0 0 10 0" Padding="10" Click="AuditoryButton_OnClick"/>
-                <Button Name="ScheduleButton" Content="Расписание" FontSize="20" Margin="0 0 10 0" Padding="10" Click="ScheduleButton_OnClick"/>
+                <Button Visibility="Collapsed" Name="ScheduleButton" Content="Расписание" FontSize="20" Margin="0 0 10 0" Padding="10" Click="ScheduleButton_OnClick"/>
             </StackPanel>
             <Button Grid.Row="0" Name="ExitButton" Grid.Column="2" FontSize="20" Foreground="Red" Background="Transparent" Content="Выйти" Margin="100 0 0 0" Click="ExitButton_OnClick"/>
 
