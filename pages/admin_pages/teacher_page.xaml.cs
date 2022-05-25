@@ -59,7 +59,7 @@ namespace learning_pract.pages.admin_pages
                 name_txtBox.Text = user.firstName;
                 otch_txtBox.Text = user.patronymic;
                 Login_txtBox.Text = user.login;
-                password_box.Password = user.password;
+                password_box.Password = Crypt.Decrypt(user.password);
             }
         }
 
@@ -72,7 +72,7 @@ namespace learning_pract.pages.admin_pages
             name_txtBox.Text = user.firstName;
             otch_txtBox.Text = user.patronymic;
             Login_txtBox.Text = user.login;
-            password_box.Password = user.password;
+            password_box.Password = Crypt.Decrypt(user.password);
             techers_lstView.ItemsSource = User.getAll();
             techers_lstView.SelectedIndex = buf;
         }
@@ -89,7 +89,7 @@ namespace learning_pract.pages.admin_pages
                 user.firstName = name_txtBox.Text;
                 user.patronymic = otch_txtBox.Text;
                 user.login = Login_txtBox.Text;
-                user.password = password_box.Password;
+                user.password = Crypt.Encrypt(password_box.Password);
                 user.save();
                 UpdateUI();
             }
