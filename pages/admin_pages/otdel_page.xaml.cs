@@ -59,11 +59,14 @@ namespace learning_pract.pages.admin_pages
 
         private void UpdateUI()
         {
-            Department department = (Department) otdel_lstV.SelectedItem;
-            int buf = otdel_lstV.SelectedIndex;
-            otdel_name_txtBox.Text = department.name;
-            otdel_lstV.ItemsSource = Department.getAll();
-            otdel_lstV.SelectedIndex = buf;
+            if (otdel_lstV.SelectedIndex >= 0)
+            {
+                Department department = (Department) otdel_lstV.SelectedItem;
+                int buf = otdel_lstV.SelectedIndex;
+                otdel_name_txtBox.Text = department.name;
+                otdel_lstV.ItemsSource = Department.getAll();
+                otdel_lstV.SelectedIndex = buf;
+            }
         }
 
         private void Otdel_lstV_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

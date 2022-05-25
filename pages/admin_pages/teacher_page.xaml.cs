@@ -65,16 +65,19 @@ namespace learning_pract.pages.admin_pages
 
         private void UpdateUI()
         {
-            User user = (User) techers_lstView.SelectedItem;
-            int buf = techers_lstView.SelectedIndex;
-            role_cmBox.SelectedIndex = user.Position.ID - 1;
-            sername_txtBox.Text = user.surname;
-            name_txtBox.Text = user.firstName;
-            otch_txtBox.Text = user.patronymic;
-            Login_txtBox.Text = user.login;
-            password_box.Password = Crypt.Decrypt(user.password);
-            techers_lstView.ItemsSource = User.getAll();
-            techers_lstView.SelectedIndex = buf;
+            if (techers_lstView.SelectedIndex >= 0)
+            {
+                User user = (User) techers_lstView.SelectedItem;
+                int buf = techers_lstView.SelectedIndex;
+                role_cmBox.SelectedIndex = user.Position.ID - 1;
+                sername_txtBox.Text = user.surname;
+                name_txtBox.Text = user.firstName;
+                otch_txtBox.Text = user.patronymic;
+                Login_txtBox.Text = user.login;
+                password_box.Password = Crypt.Decrypt(user.password);
+                techers_lstView.ItemsSource = User.getAll();
+                techers_lstView.SelectedIndex = buf;
+            }
         }
 
         private void Change_btn_OnClick(object sender, RoutedEventArgs e)
