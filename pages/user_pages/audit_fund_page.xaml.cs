@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using learning_pract.Models;
-
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 
@@ -24,27 +23,34 @@ namespace learning_pract.pages.user_pages
         {
             foreach (Schedule schedule in list)
             {
-                for (int i = 0; i < audit.Count; i++)
-                {
-                    audit[i].auditory = schedule.Auditory.num.ToString();
-                    audit[i].group = schedule.Group.name;
-                    audit[i].subject = schedule.Subject.Theme;
-                    audit[i].Num = schedule.Num;
-                    audit[i].Day = schedule.Day;
-                }
+                audit.Add(new Audit(schedule));
             }
 
+            
             AuditGrid.ItemsSource = audit;
+            AuditGrid.Items.Refresh();
+        }
+
+        private void Clear()
+        {
+            audit = new List<Audit>();
+            AuditGrid.ItemsSource = null;
+            AuditGrid.Columns.Clear();
+            AuditGrid.Items.Clear();
+            AuditGrid.Items.Refresh();
         }
 
 
         private void Groups_lstV_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Group group = (Group) groups_lstV.SelectedItem;
+            Clear();
             UpdateTable(Schedule.GetByGroupId(group.ID));
         }
+
         private void AllGroupsButton_OnClick(object sender, RoutedEventArgs e)
         {
+            Clear();
             UpdateTable(Schedule.getAll());
         }
 
@@ -57,21 +63,23 @@ namespace learning_pract.pages.user_pages
         private void ExportButton_OnClick(object sender, RoutedEventArgs e)
         {
             Excel.Application excel = new Excel.Application();
-            excel.Visible = true; 
+            excel.Visible = true;
             Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
-            Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
- 
-            for (int j = 0; j < AuditGrid.Columns.Count; j++) 
+            Worksheet sheet1 = (Worksheet) workbook.Sheets[1];
+
+            for (int j = 0; j < AuditGrid.Columns.Count; j++)
             {
-                Range myRange = (Range)sheet1.Cells[1, j + 1];
+                Range myRange = (Range) sheet1.Cells[1, j + 1];
                 myRange.Value2 = AuditGrid.Columns[j].Header;
             }
+
             for (int i = 0; i < AuditGrid.Columns.Count; i++)
             {
                 for (int j = 0; j < AuditGrid.Items.Count; j++)
                 {
                     TextBlock b = AuditGrid.Columns[i].GetCellContent(AuditGrid.Items[j]) as TextBlock;
-                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[j + 2, i + 1];
+                    Microsoft.Office.Interop.Excel.Range myRange =
+                        (Microsoft.Office.Interop.Excel.Range) sheet1.Cells[j + 2, i + 1];
                     myRange.Value2 = b.Text;
                 }
             }

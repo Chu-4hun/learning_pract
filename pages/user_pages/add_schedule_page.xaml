@@ -4,9 +4,50 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:learning_pract.pages.user_pages"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d"
-      Title="add_schedule_page" Height="450" Width="800">
+      Title="Расписание">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Группа" FontSize="20" />
+        <ComboBox Grid.Column="0" Grid.Row="1" Name="Group_cmBox" FontSize="20" />
+        <Label Grid.Column="0" Grid.Row="2" Content="Дисциплина" FontSize="20" />
+        <ComboBox Grid.Column="0" Grid.Row="3" Name="Subject_cmBox" FontSize="20" />
+        <Label Grid.Column="0" Grid.Row="4" Content="Преподаватель" FontSize="20" />
+        <ComboBox Grid.Column="0" Grid.Row="5" Name="User_cmBox" FontSize="20" />
         
+        
+        <Label Grid.Column="1" Grid.Row="0" Content="Дата" FontSize="20" />
+                <DatePicker Grid.Column="1" Grid.Row="1"
+                    x:Name="DatePicker"
+                    MinWidth="150"
+                    Margin="5"
+                    DisplayDateStart="{Binding Mode=OneWay, Source={x:Static
+            System:DateTime.Today}}" />
+                <Label Grid.Column="1" Grid.Row="2" Content="Аудитория" FontSize="20" />
+                <ComboBox Grid.Column="1" Grid.Row="3" Name="Audit_cmBox" FontSize="20" />
+                <Label Grid.Column="1" Grid.Row="4" Content="Пара" FontSize="20" />
+                <ComboBox Grid.Column="1" Grid.Row="5" Name="Num_cmBox" FontSize="20" />
+        
+        
+            <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Vertical">
+                <Button FontSize="20" Margin="10" Name="add_btn" Content="Добавить" Click="Add_btn_OnClick" />
+                <!-- <Button FontSize="20" Margin="10" Name="change_btn" Content="Изменить" Click="Change_btn_OnClick" /> -->
+                <!-- <Button FontSize="20" Margin="10" Name="delete_btn" Content="Удалить" Click="Delete_btn_OnClick" /> -->
+            </StackPanel>
+      
     </Grid>
 </Page>

@@ -6,7 +6,12 @@ namespace learning_pract.Models
     public class Schedule
     {
         public string Day { get; set; }
-        public int Num { get=> _num; }
+
+        public int Num
+        {
+            get => _num;
+        }
+
         private int _num;
 
         public Lecture Subject
@@ -54,9 +59,9 @@ namespace learning_pract.Models
             this.Day = data["day"].ToString();
             Int32.TryParse(data["lecture_num"].ToString(), out this._num);
             Int32.TryParse(data["subject_fk"].ToString(), out this._subject);
-            Int32.TryParse(data["auditorys_fk"].ToString(), out this._auditory);
+            Int32.TryParse(data["auditories_fk"].ToString(), out this._auditory);
             Int32.TryParse(data["group_fk"].ToString(), out this._group);
-            Int32.TryParse(data["id_schelude"].ToString(), out this._id);
+            Int32.TryParse(data["id_schedule"].ToString(), out this._id);
         }
 
         public static Schedule GetById(int id)
@@ -73,6 +78,7 @@ namespace learning_pract.Models
 
             return new Schedule(data[0]);
         }
+
         public static List<Schedule> GetByGroupId(int id)
         {
             var data = App.db.execute("select * from schedule where group_fk=@id;",
@@ -82,7 +88,7 @@ namespace learning_pract.Models
                 });
             if (data.Count == 0)
             {
-                return new List<Schedule>{};
+                return new List<Schedule> { };
             }
 
             List<Schedule> output = new List<Schedule>();
@@ -139,7 +145,7 @@ namespace learning_pract.Models
             }
 
             var data = App.db.execute(
-                "INSERT INTO schedule(day, subject_fk, auditories_fk, lecture_num,group_fk) VALUES (@_day, @subj, @audit, @number,@group) RETURNING id_schelude;",
+                "INSERT INTO schedule(day, subject_fk, auditories_fk, lecture_num,group_fk) VALUES (@_day, @subj, @audit, @number,@group) RETURNING id_schedule;",
                 new Dictionary<string, object>()
                 {
                     {"_day", Day},
@@ -150,7 +156,23 @@ namespace learning_pract.Models
                 });
             if (data.Count > 0)
             {
-                Int32.TryParse(data[0]["id_schelude"].ToString(), out this._id);
+                Int32.TryParse(data[0]["id_schedule"].ToString(), out this._id);
+            }
+        }
+
+        public void DeleteDublicates()
+        {
+            var data = App.db.execute(
+                "WITH cte AS (SELECT day, subject_fk, auditories_fk, lecture_num,group_fk" +
+                " ROW_NUMBER() OVER ( " +
+                "PARTITION BY day, subject_fk, auditories_fk, lecture_num,group_fk " +
+                "ORDER BY day, subject_fk, auditories_fk, lecture_num,group_fk)" +
+                "row_num FROM schedule)" +
+                "DELETE FROM cte WHERE row_num > 1;  "
+                );
+            if (data.Count > 0)
+            {
+                Int32.TryParse(data[0]["id_schedule"].ToString(), out this._id);
             }
         }
     }

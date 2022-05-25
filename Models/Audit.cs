@@ -25,5 +25,14 @@
         }
 
         public string group;
+
+        public Audit(Schedule schedule)
+        {
+            auditory = schedule.Auditory.num.ToString();
+            group = schedule.Group.name;
+            subject = schedule.Subject.Theme;
+            Num = schedule.Num;
+            Day = schedule.Day;
+        }
     }
 }
