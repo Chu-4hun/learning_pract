@@ -1,87 +1,96 @@
 create table Positions
 (
-	ID_Positions Serial PRIMARY KEY,
-	pos_name Varchar(64) NOT NULL
+    ID_Positions Serial PRIMARY KEY,
+    pos_name     Varchar(64) NOT NULL
 );
 
-Create table Department 
+Create table Department
 (
-	ID_Department Serial PRIMARY KEY,
-	dep_number Varchar(8)  NOT NULL
+    ID_Department Serial PRIMARY KEY,
+    dep_number    Varchar(8) NOT NULL
 );
 
-create table "Groups" 
+create table groups
 (
-	ID_Groups Serial PRIMARY KEY,
-	group_name Varchar(15)  NOT NULL
+    ID_Groups  Serial PRIMARY KEY,
+    group_name Varchar(15) NOT NULL
 );
 
 create table Users
 (
-	ID_user Serial PRIMARY KEY,
-	surname  varchar(25) NOT NULL,
-    "name" varchar(20) NOT NULL,
-    patronymic varchar(25) null default(''),
-    login         varchar(20) NOT NULL,
-	"password"    varchar(20) NOT NULL,
-	position_fk int REFERENCES Positions(ID_Positions)
+    ID_user     Serial PRIMARY KEY,
+    surname     varchar(25) NOT NULL,
+    "name"      varchar(20) NOT NULL,
+    patronymic  varchar(25) null default (''),
+    login       varchar(20) NOT NULL,
+    "password"  varchar(20) NOT NULL,
+    position_fk int REFERENCES Positions (ID_Positions)
 );
 
 
 create table auditorys
 (
-	ID_auditory Serial PRIMARY KEY,
-	auditory_num int  NOT NULL,
-	capacity int NOT NULL
+    ID_auditory  Serial PRIMARY KEY,
+    auditory_num int NOT NULL,
+    capacity     int NOT NULL
 );
 
 create table "day"
 (
-	ID_day Serial PRIMARY KEY,
-	"Date" DATE NOT NULL
+    ID_day Serial PRIMARY KEY,
+    "Date" DATE NOT NULL
 );
 
 create table lectures
 (
-	ID_lectures Serial PRIMARY KEY,
-	theme varchar(20) NOT NULL
+    ID_lectures Serial PRIMARY KEY,
+    theme       varchar(20) NOT NULL
 );
+
+drop table schedule;
 
 create table schedule
 (
-	day_FK int REFERENCES "day" (ID_day),
-	lectures_FK int REFERENCES "lectures" (ID_lectures),
-	auditorys_FK int REFERENCES auditorys (ID_auditory),
-	department_FK int REFERENCES Department (ID_Department)
+    id_schedule SERIAL PRIMARY KEY ,
+    date_      varchar ,
+    lecture_num   int,
+    auditories_fk  int REFERENCES auditorys (ID_auditory),
+    group_fk      int REFERENCES groups (id_groups),
+    subject_fk      int REFERENCES lectures (id_lectures),
+    department_FK int REFERENCES Department (ID_Department)
 );
 
 
 create table Groups_to_Users
 (
-	Groups_FK int REFERENCES "Groups" (ID_Groups),
-	user_FK int REFERENCES Users (ID_user)
+    Groups_FK int REFERENCES groups (ID_Groups),
+    user_FK   int REFERENCES Users (ID_user)
 );
 
 
 insert into Positions(pos_name)
-values ('Администратор'),('Сотрудник Учебной Части');
-SELECT * FROM Positions
-
+values ('Администратор'),
+       ('Сотрудник Учебной Части');
 insert into Department(dep_number)
 values ('09.02.01');
-SELECT * FROM Department
+SELECT *
+FROM Department;
 
-insert into "Groups" (group_name)
+
+insert into groups (group_name)
 values ('П50-6-19');
-SELECT * FROM "Groups"
-
-insert into auditorys (auditory_num,capacity)
-values (101,100);
-SELECT * FROM auditorys
-
+SELECT *
+FROM groups;
+insert into auditorys (auditory_num, capacity)
+values (101, 100);
+SELECT *
+FROM auditorys;
 insert into "day" ("Date")
 values (current_date);
-SELECT * FROM "day"
+SELECT *
+FROM "day";
 
-SELECT * FROM Users
-DELETE FROM Users
+SELECT *
+FROM Users;
+DELETE
+FROM Users

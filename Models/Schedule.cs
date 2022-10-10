@@ -56,7 +56,7 @@ namespace learning_pract.Models
 
         public Schedule(Dictionary<string, object> data)
         {
-            this.Day = data["day"].ToString();
+            this.Day = data["date_"].ToString();
             Int32.TryParse(data["lecture_num"].ToString(), out this._num);
             Int32.TryParse(data["subject_fk"].ToString(), out this._subject);
             Int32.TryParse(data["auditories_fk"].ToString(), out this._auditory);
@@ -131,7 +131,7 @@ namespace learning_pract.Models
             if (this.exists())
             {
                 App.db.execute(
-                    "UPDATE schedule SET day=@_day, subject_fk=@subj, auditories_fk=@audit, lecture_num=@number, group_fk=@group WHERE id_schedule=@id;",
+                    "UPDATE schedule SET date_=@_day, subject_fk=@subj, auditories_fk=@audit, lecture_num=@number, group_fk=@group WHERE id_schedule=@id;",
                     new Dictionary<string, object>()
                     {
                         {"_day", Day},
@@ -145,7 +145,7 @@ namespace learning_pract.Models
             }
 
             var data = App.db.execute(
-                "INSERT INTO schedule(day, subject_fk, auditories_fk, lecture_num,group_fk) VALUES (@_day, @subj, @audit, @number,@group) RETURNING id_schedule;",
+                "INSERT INTO schedule(date_, subject_fk, auditories_fk, lecture_num,group_fk) VALUES (@_day, @subj, @audit, @number,@group) RETURNING id_schedule;",
                 new Dictionary<string, object>()
                 {
                     {"_day", Day},
@@ -163,10 +163,10 @@ namespace learning_pract.Models
         public void DeleteDublicates()
         {
             var data = App.db.execute(
-                "WITH cte AS (SELECT day, subject_fk, auditories_fk, lecture_num,group_fk" +
+                "WITH cte AS (SELECT date_, subject_fk, auditories_fk, lecture_num,group_fk" +
                 " ROW_NUMBER() OVER ( " +
-                "PARTITION BY day, subject_fk, auditories_fk, lecture_num,group_fk " +
-                "ORDER BY day, subject_fk, auditories_fk, lecture_num,group_fk)" +
+                "PARTITION BY date_ , subject_fk, auditories_fk, lecture_num,group_fk " +
+                "ORDER BY date_, subject_fk, auditories_fk, lecture_num,group_fk)" +
                 "row_num FROM schedule)" +
                 "DELETE FROM cte WHERE row_num > 1;  "
                 );

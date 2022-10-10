@@ -14,7 +14,7 @@ namespace learning_pract
         {
             base.OnStartup(e);
 
-            db = new DB("194.169.163.29", "ffff", "Chu", "4hun");
+            db = new DB("194.87.110.238", "chu_learn_db", "chu", "CYV-6tm-5dE-Z9C");
 
             var window = new MainWindow()
             {
